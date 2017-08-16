@@ -4,7 +4,7 @@
   "description": "Steamer desktop version for macOS/Windows/Linux based on electron.",
   "main": "main.js",
   "scripts": {
-    "test": "mocha && standard"
+    "test": "xo && mocha && standard"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,7 @@
   "bugs": {
     "url": "https://github.com/steamerjs/steamer-electron/issues"
   },
-  "homepage": "https://github.com/steamerjs/steamer-electron#readme"
-  ,
+  "homepage": "https://github.com/steamerjs/steamer-electron#readme",
   "devDependencies": {
     "chai": "^3.4.1",
     "chai-as-promised": "^6.0.0",
@@ -36,12 +35,17 @@
     "rimraf": "^2.5.2",
     "signcode": "^0.5.0",
     "spectron": "~3.6.0",
-    "standard": "^8.2.0"
+    "standard": "^8.2.0",
+    "xo": "^0.18.2"
   },
   "dependencies": {
     "electron-settings": "^3.0.7",
     "electron-shortcut-normalizer": "^1.0.0",
     "glob": "^7.1.0",
     "highlight.js": "^9.3.0"
-  }
+  },
+  "xo": {
+    "space": 4,
+    "semicolon": false
+	}
 }
