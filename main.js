@@ -1,15 +1,16 @@
 const path = require('path')
 const glob = require('glob')
 const electron = require('electron')
-const autoUpdator = require('./auto-updator')
+//const autoUpdator = require('./auto-updator')
 
-const BrowserWindow = electron.BrowserView
+const BrowserWindow = electron.BrowserWindow
+
 const app = electron.app
 
 const debug = /--debug/.test(process.argv[2])
 
 if (process.mas) {
-    app.setName('Electron API')
+    app.setName('Steamer')
 }
 
 var mainWindow = null
@@ -20,14 +21,15 @@ function initialize() {
     if (shouldQuit) {
         return app.quit()
     }
-    // 载入
+    // 载入main process的代码
     loadSteamer()
+    // 创建一个窗口
     function createWindow() {
         var windowOptions = {
             width:1080,
             minWidth: 680,
             height: 840,
-            title: app.getName()
+            title: 'Steamer Electron'
         }
 
         // 如果系统是Linux，使用512大小的icon
@@ -55,7 +57,7 @@ function initialize() {
     // Electron核心代码加载好后就可以创建主窗口，顺便初始化自动更新
     app.on('ready', function(){
         createWindow()
-        autoUpdator.initialize()
+        //autoUpdator.initialize()
     })
 
     // 除了Mac系统，关闭全部窗口就关闭整个app
@@ -98,16 +100,16 @@ function initialize() {
         files.forEach(function(file){
             require(file)
         })
-        autoUpdator.updateMenu()
+        //autoUpdator.updateMenu()
     }
 }
 // 这里是处理关于squirrel的windows自动更新
 switch (process.argv[1]) {
     case '--squirrel-install':
-        autoUpdater.createShortcut(function () { app.quit() })
+        //autoUpdater.createShortcut(function () { app.quit() })
         break
     case '--squirrel-uninstall':
-        autoUpdater.removeShortcut(function () { app.quit() })
+        //autoUpdater.removeShortcut(function () { app.quit() })
         break
     case '--squirrel-obsolete':
     case '--squirrel-updated':
