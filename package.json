@@ -1,0 +1,79 @@
+{
+  "name": "steamer-electron",
+  "version": "1.0.0",
+  "description": "Steamer desktop version for macOS/Windows/Linux based on electron.",
+  "main": "main.js",
+  "scripts": {
+    "start": "npm run render",
+    "dev": "node ./tools/dev.js",
+    "test": "xo && mocha && standard",
+    "render": "cross-env NODE_ENV=development node ./tools/server.js",
+    "electron": "cross-env NODE_ENV=development electron ./src/main.js --debug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steamerjs/steamer-electron.git"
+  },
+  "keywords": [
+    "steamer",
+    "electron"
+  ],
+  "author": "LeoEatle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/steamerjs/steamer-electron/issues"
+  },
+  "homepage": "https://github.com/steamerjs/steamer-electron#readme",
+  "devDependencies": {
+    "@types/react-hot-loader": "^3.0.3",
+    "@types/webpack": "^3.0.9",
+    "@types/webpack-env": "^1.13.0",
+    "awesome-typescript-loader": "^3.2.3",
+    "chai": "^3.4.1",
+    "chai-as-promised": "^6.0.0",
+    "chalk": "^2.1.0",
+    "check-for-leaks": "^1.2.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^5.0.5",
+    "devtron": "^1.3.0",
+    "electron": "~1.6.2",
+    "electron-debug": "^1.4.0",
+    "electron-devtools-installer": "^2.2.0",
+    "electron-packager": "^8.6.0",
+    "electron-winstaller": "^2.2.0",
+    "express": "^4.15.4",
+    "html-webpack-plugin": "^2.30.1",
+    "husky": "^0.14.3",
+    "mocha": "^3.1.0",
+    "npm-run-all": "^4.0.2",
+    "react-hot-loader": "^3.0.0-beta.7",
+    "request": "^2.70.0",
+    "rimraf": "^2.5.2",
+    "signcode": "^0.5.0",
+    "source-map-loader": "^0.2.1",
+    "spectron": "~3.6.0",
+    "standard": "^8.2.0",
+    "typescript": "^2.4.2",
+    "webpack": "^3.5.5",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-dev-server": "^2.7.1",
+    "webpack-hot-middleware": "^2.18.2",
+    "xo": "^0.18.2"
+  },
+  "dependencies": {
+    "@types/react": "^16.0.2",
+    "@types/react-dom": "^15.5.3",
+    "electron-settings": "^3.0.7",
+    "electron-shortcut-normalizer": "^1.0.0",
+    "glob": "^7.1.0",
+    "highlight.js": "^9.3.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "steamer-plugin-kit": "^1.3.1",
+    "steamerjs": "^1.5.0"
+  },
+  "xo": {
+    "space": 4,
+    "semicolon": false
+  }
+}
