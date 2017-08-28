@@ -40,7 +40,8 @@ function initialize() {
         // 创建主窗口
         mainWindow = new BrowserWindow(windowOptions)
         // 载入主界面
-        mainWindow.loadURL(path.join('file://', __dirname, '/index.html'))
+        //mainWindow.loadURL(path.join('file://', __dirname, './index.html'))
+        mainWindow.loadURL('localhost:12345/index.html')
         // 如果使用npm run debug，将会全屏并且打开开发者工具
         if (debug) {
             mainWindow.webContents.openDevTools()
