@@ -1,10 +1,11 @@
 const { app, BrowserWindow, Menu, shell } = require('electron')
 const path = require('path')
+let port = process.argv.PORT || '12345'
+let baseDir = path.join(__dirname, '../')
+
 let menu
 let template
 let mainWindow = null
-let port = process.argv.PORT || '12345'
-let baseDir = path.join(__dirname, '../')
 if (process.env.NODE_ENV === 'production') {
     const sourceMapSupport = require('source-map-support') // eslint-disable-line
     sourceMapSupport.install()
@@ -88,12 +89,12 @@ app.on('ready', () =>
                 template = [{
                     label: 'Steamer',
                     submenu: [{
-                        label: '关于Steamer',
+                        label: '关于',
                         selector: 'orderFrontStandardAboutPanel:'
                     }, {
                         type: 'separator'
                     }, {
-                        label: 'Services',
+                        label: '服务',
                         submenu: []
                     }, {
                         type: 'separator'
@@ -121,7 +122,7 @@ app.on('ready', () =>
                 }, {
                     label: '项目',
                     submenu: [{
-                        label: '添加新项目',
+                        label: '开始新项目',
                         accelerator: 'Command + N'
                     }, {
                         label: '安装新插件',
@@ -190,22 +191,17 @@ app.on('ready', () =>
                     submenu: [{
                         label: '了解Steamer',
                         click() {
-                            shell.openExternal('http://electron.atom.io')
+                            shell.openExternal('https://steamerjs.github.io/')
                         }
                     }, {
-                        label: 'Documentation',
+                        label: '查看文档',
                         click() {
-                            shell.openExternal('https://github.com/atom/electron/tree/master/docs#readme')
+                            shell.openExternal('https://steamerjs.github.io/')
                         }
                     }, {
-                        label: 'Community Discussions',
+                        label: '提交issue',
                         click() {
-                            shell.openExternal('https://discuss.atom.io/c/electron')
-                        }
-                    }, {
-                        label: 'Search Issues',
-                        click() {
-                            shell.openExternal('https://github.com/atom/electron/issues')
+                            shell.openExternal('https://github.com/steamerjs/steamerjs/issues')
                         }
                     }]
                 }]
