@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Redux from 'react-redux';
 import { History } from 'history';
-
+import { Router } from 'react-router';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import Routes from '../routes';
@@ -11,13 +11,14 @@ interface IRootType {
   history: History
 };
 
-function Root({ store, history }: IRootType) {
+var Root = function({ store, history }: IRootType) {
   return (
     <Provider store={store}>
-      <ConnectedRouter history={history}>
+      <Router history={history}>
         <Routes />
-      </ConnectedRouter>
+      </Router>
     </Provider>
+
   );
 }
 

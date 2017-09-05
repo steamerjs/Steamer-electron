@@ -1,6 +1,6 @@
 const { app, BrowserWindow, Menu, shell } = require('electron')
 const path = require('path')
-const template = require('./main-process/menu.js');
+const createTemplate = require('./main-process/menu.js')
 let port = process.argv.PORT || '12345'
 let baseDir = path.join(__dirname, '../')
 
@@ -85,6 +85,6 @@ app.on('ready', () =>
                 })
             }
 
-            menu = Menu.buildFromTemplate(template)
+            menu = Menu.buildFromTemplate(createTemplate(mainWindow))
             Menu.setApplicationMenu(menu)
         }))
