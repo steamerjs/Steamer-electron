@@ -1,26 +1,18 @@
 import * as React from 'react';
+import { bindActionCreators } from 'redux';
 import { connect, Dispatch } from 'react-redux';
 import { Counter, IProps } from '../components/Counter';
 import * as CounterActions from '../actions/counter';
 import { IState } from '../reducers';
-import { bindActionCreators } from 'redux';
 
-function mapStateToProps(state: any){
+function mapStateToProps(state: IState): Partial<IProps> {
   return {
     counter: state.counter
   };
 }
 
-function mapDispatchToProps(dispatch: any) {
+function mapDispatchToProps(dispatch: Dispatch<IState>): Partial<IProps> {
   return bindActionCreators(CounterActions as any, dispatch);
 }
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <div>
-        {this.props.children}
-      </div>
-    );
-  }
-}
+export default (connect(mapStateToProps, mapDispatchToProps)(Counter) as any as React.StatelessComponent<IProps>);

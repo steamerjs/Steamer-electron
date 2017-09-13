@@ -1,16 +1,29 @@
-:local {
-  .container {
+@import "./common.scss";
+.container {
+    display: flex;
     position: absolute;
-    top: 30%;
-    left: 10px;
+    top: 10%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     text-align: center;
-  }
-
-  .container h2 {
-    font-size: 5rem;
-  }
-
-  .container a {
-    font-size: 1.4rem;
-  }
+    .title {
+        margin: 50px;
+    }
+    .slogan {
+        margin: 50px;
+    }
+    .enterButton {
+        margin: 50px;
+    }
 }
+
+.container h2 {
+    font-size: 5rem;
+}
+
+.container a {
+  font-size: 1.4rem;
+}
+
